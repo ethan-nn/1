@@ -1,5 +1,4 @@
 ---
-attachments: [Clipboard_2020-06-21-14-59-57.png, Clipboard_2020-06-21-18-36-57.png, Clipboard_2020-06-21-18-36-59.png, Clipboard_2020-06-21-18-37-03.png, Clipboard_2020-06-21-18-39-06.png, Clipboard_2020-06-21-18-40-44.png, Clipboard_2020-06-21-18-41-13.png, Clipboard_2020-06-21-18-42-11.png]
 tags: [home network]
 title: openwrt smartdns
 created: '2020-06-21T06:52:07.374Z'
