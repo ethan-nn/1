@@ -24,18 +24,18 @@ opkg install luci-app-smartdns.1.2020.05.04-0005.all-luci-all.ipk
 ```
 ## 重启
 每次安装完软件，刷新刷不出来，我重启一下就ok
-![](@attachment/Clipboard_2020-06-21-14-59-57.png)
+![](attachments/Clipboard_2020-06-21-14-59-57.png)
 ## 配置
 1. 配置smartdns
-![](@attachment/Clipboard_2020-06-21-18-37-03.png)
+![](attachments/Clipboard_2020-06-21-18-37-03.png)
 2. 配置dhcp/dns
 网络-->dhcp/dns
-![](@attachment/Clipboard_2020-06-21-18-39-06.png)
+![](attachments/Clipboard_2020-06-21-18-39-06.png)
 3. 配置lan
-![](@attachment/Clipboard_2020-06-21-18-41-13.png)
+![](attachments/Clipboard_2020-06-21-18-41-13.png)
 ## 验证，看一下系统日志，貌似打开网页挺快的。没多大感觉，以前就挺快的，呵呵。
-![](@attachment/Clipboard_2020-06-21-18-42-11.png)
+![](attachments/Clipboard_2020-06-21-18-42-11.png)
 
 
- 
+
 
