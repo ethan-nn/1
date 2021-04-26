@@ -17,13 +17,13 @@ CentOS Linux release 7.5.1804 (Core)
 
 IAM -> role ->创建角色->aws 产品->EC2->选择**CloudWatchAgentSwerverPolicy**-->角色名称
 
-<img src="../../../github/docs/attachments/image-20210414102051481.png" alt="image-20210414102051481" style="zoom:50%;" />
+<img src="attachments/image-20210414102051481.png" alt="image-20210414102051481" style="zoom:50%;" />
 
 ## 将 IAM 角色附加到实例
 
 选定ec2实例-->操作-->安全-->修改IAM角色-->选择创建的角色
 
-![image-20210414103116755](../../../github/docs/attachments/image-20210414103116755.png)
+![image-20210414103116755](attachments/image-20210414103116755.png)
 
 ## 使用向导生成配置文件
 
