@@ -34,7 +34,6 @@ private-subnet-01:172.22.1.0/24, 172.22.11.0/24
 vpc2 公共路由表
 ![image-20210516004458657](attachments/image-20210516004458657.png)
 
-
 vpc2 公共路由表关联的子网
 ![image-20210516004546972](attachments/image-20210516004546972.png)
 vpc2 私有路由表
@@ -209,7 +208,7 @@ root@swan2:~# cat /etc/ipsec.secrets
 swan1 swan2 重启动strongswan
 
 ```bash
-systemctl restart strongswan
+systemctl restart strongswan # 重启strongswan
 root@swan2:~# ipsec status
 Security Associations (1 up, 0 connecting):
      Tunnel1[3]: ESTABLISHED 25 minutes ago, 172.22.0.20[52.83.155.25]...69.231.179.211[69.231.179.211]
@@ -276,7 +275,7 @@ src ::/0 dst ::/0
 	socket out priority 0
 ```
 
-配置路由表
+## 配置路由表
 
 vpc1 私有路由表
 
@@ -359,6 +358,44 @@ conn Tunnel1
         esp=aes128-sha1
         keyexchange=ikev2
 ```
+
+日志问题：
+
+创建文件并对所有用户修改权限也没有用，查看/var/log/syslog文件在启动的时候报错：
+
+报错如下（打开文件报错）：
+
+```bash
+Apr 24 16:36:32 ubuntu kernel: [  690.797791] audit: type=1400 audit(1524558992.560:41): apparmor="DENIED" operation="open" profile="/usr/lib/ipsec/charon" name="/var/log/strongswan.log" pid=3723 comm="charon" requested_mask="wc" denied_mask="wc" fsuid=0 ouid=0
+```
+
+解决方法：
+1 修改apparmor配置
+
+```bash
+sudo vim '/etc/apparmor.d/usr.lib.ipsec.charon' 
+```
+
+大括号中其他文件权限配置之后，添加（前面的内容为定义的log文件的路径，后面的是分配的权限），由于我在strongswan.conf中filelog的路径配置的为/var/log/strongswan.log，因此我配置的权限如下：
+
+```bash
+/var/log/strongswan.*      rwk,
+```
+
+2 执行apparmor重新加载：
+
+```bash
+sudo /etc/init.d/apparmor reload
+```
+
+3 重启strongswan，
+
+我自测如果不重启还是没有文件的
+`sudo ipsec restart`
+就可以看到日志了
+
+
+
 
 
 
