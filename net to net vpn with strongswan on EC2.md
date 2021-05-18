@@ -281,3 +281,4 @@ root@vpn-A:~# ip a
     inet6 fe80::5efe:ac1f:2c7f/64 scope link
        valid_lft forever preferred_lft forever
 ```
+
